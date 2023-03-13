@@ -11,13 +11,13 @@ for /f "tokens=1 delims=/" %%a in ("%url%") do (
 
 if /i "%hostname%"=="%main_url%" (
   color 2
-  echo Good
+  echo Not a phishing
 ) else if /i "%hostname%"=="%second_url%" (
   color 2
   echo Not a phishing
 ) else (
   color 4
-  echo phishing deteced
+  echo Phishing deteced
 )
 
 pause
