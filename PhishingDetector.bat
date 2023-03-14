@@ -1,6 +1,7 @@
 @echo off
 
 :start
+echo made by Adam
 set /p url="Enter a URL: "
 
 set "main_url=www.roblox.com"
