@@ -1,11 +1,20 @@
 @echo off
 
 :start
-echo made by Adam
+echo made by RoGuard.
 set /p url="Enter a URL: "
 
-set "main_url=www.roblox.com"
-set "second_url=web.roblox.com"
+set "main_url=roblox.com"
+set "second_url=www.roblox.com"
+set "third_url=web.roblox.com"
+
+if /i "%url:~0,8%"=="https://" (
+  set "url=%url:~8%"
+)
+
+if /i "%url:~0,4%"=="www." (
+  set "url=%url:~4%"
+)
 
 for /f "tokens=1 delims=/" %%a in ("%url%") do (
   set "hostname=%%a"
@@ -17,6 +26,9 @@ if /i "%hostname%"=="%main_url%" (
   color 2
   echo Not a phishing
 ) else if /i "%hostname%"=="%second_url%" (
+  color 2
+  echo Not a phishing
+) else if /i "%hostname%"=="%third_url%" (
   color 2
   echo Not a phishing
 ) else if not "%url:~-33%"=="%private_server_string%" (
